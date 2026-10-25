@@ -47,7 +47,7 @@ void	parse(std::vector<int>& nums, const std::string& raw_nums)
 
 int main(int argc, char **argv)
 {
-	PmergeMe			FordJohnson;
+	PmergeMe			example;
 	std::vector<int>	nums;
 
 	if (argc < 2)
@@ -56,11 +56,12 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 			parse(nums, argv[i]);
+		example.organizevct(nums);
 	/*	std::cout << "Before: ";
 		for(size_t t = 0; t < nums.size(); t++)
 			std::cout<< nums[t] << " ";
 		std::cout << std::endl;*/
-		//display(nums, FordJohnson.organizevct(nums), FordJohnson.organizeother(nums));
+		//display(nums, example.organizevct(nums), example.organizeother(nums));
 	}
 	catch (const std::exception& e)
 	{
