@@ -4,9 +4,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
+#include <deque>
 #include <sstream>
 #include <limits>
 #include <algorithm>
+#include <sys/time.h>
 
 class PmergeMe
 {
@@ -16,7 +19,7 @@ class PmergeMe
 		PmergeMe	&operator=(const PmergeMe& other);
 		~PmergeMe();
 
-		void	organizevct(std::vector<int>& nums);
+		void	organize(std::list<int>& nums);
 };
 
 #endif

@@ -22,10 +22,9 @@ static size_t	counter(const std::string& raw_nums)
 	return quant;
 }
 
-void	parse(std::vector<int>& nums, const std::string& raw_nums)
+void	parse(std::list<int>& nums, const std::string& raw_nums)
 {
 	std::istringstream	aux(raw_nums);
-
 	int					holder;
 	size_t				elems;
 
@@ -39,8 +38,10 @@ void	parse(std::vector<int>& nums, const std::string& raw_nums)
 		throw std::runtime_error("Invalid number used.");
 	if (nums.empty())
 		throw std::runtime_error("No numbers found.");
-	std::vector<int>	sort_copy(nums);
-	std::sort(sort_copy.begin(), sort_copy.end());
+
+	std::list<int>	sort_copy(nums);
+
+	sort_copy.sort();
 	if (std::adjacent_find(sort_copy.begin(), sort_copy.end()) != sort_copy.end())
 		throw std::runtime_error("Invalid use of duplicates.");
 }
@@ -48,7 +49,7 @@ void	parse(std::vector<int>& nums, const std::string& raw_nums)
 int main(int argc, char **argv)
 {
 	PmergeMe			example;
-	std::vector<int>	nums;
+	std::list<int>		nums;
 
 	if (argc < 2)
 		return (std::cerr << "Error: invalid input" << std::endl, 1);
@@ -56,12 +57,8 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 			parse(nums, argv[i]);
-		example.organizevct(nums);
-	/*	std::cout << "Before: ";
-		for(size_t t = 0; t < nums.size(); t++)
-			std::cout<< nums[t] << " ";
-		std::cout << std::endl;*/
-		//display(nums, example.organizevct(nums), example.organizeother(nums));
+
+		example.organize(nums);
 	}
 	catch (const std::exception& e)
 	{
