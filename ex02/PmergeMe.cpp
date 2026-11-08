@@ -50,7 +50,6 @@ static void	fordjohnson(std::vector<int>& nums, int s)
 {
 	std::vector<int>	main, pend, jacobOrd, result;
 	int 				p_size, n, start;
-	std::vector<int>::iterator	lo, hi;
 
 	n = nums.size();
 	p_size = s * 2;
